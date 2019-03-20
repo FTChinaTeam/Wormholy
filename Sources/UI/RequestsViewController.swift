@@ -8,6 +8,8 @@
 
 import UIKit
 
+private let cellHeight: CGFloat = 90
+
 class RequestsViewController: WHBaseViewController {
     
     @IBOutlet weak var collectionView: WHCollectionView!
@@ -42,7 +44,7 @@ class RequestsViewController: WHBaseViewController {
             
         }) { (completionContext) in
             //Code here will execute after the rotation has finished.
-            (self.collectionView?.collectionViewLayout as? UICollectionViewFlowLayout)?.itemSize = CGSize(width: UIScreen.main.bounds.width, height: 76)
+            (self.collectionView?.collectionViewLayout as? UICollectionViewFlowLayout)?.itemSize = CGSize(width: UIScreen.main.bounds.width, height: cellHeight)
             self.collectionView.reloadData()
         }
     }
@@ -160,7 +162,7 @@ extension RequestsViewController: UICollectionViewDelegate, UICollectionViewDele
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: collectionView.bounds.size.width, height: 76)
+        return CGSize(width: collectionView.bounds.size.width, height: cellHeight)
     }
 }
 

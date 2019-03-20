@@ -45,6 +45,10 @@ class RequestCell: UICollectionViewCell {
             codeLabel.textColor = Colors.HTTPCode.Generic
         }
         urlLabel.text = request?.url
-        durationLabel.text = request?.duration?.formattedMilliseconds() ?? ""
+        if let time = request?.duration?.formattedMilliseconds() {
+            durationLabel.text = "耗时：\(time)"
+        } else {
+            durationLabel.text = ""
+        }
     }
 }
